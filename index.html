@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Доска публикаций — ЛР 3</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Доска публикаций</h1>
+    <p class="author">Ломаев И.С. · БПИ-23-РП-2 · ЛР 3</p>
+
+    <section aria-labelledby="editorHeading">
+      <h2 id="editorHeading">Новая публикация</h2>
+      <form id="publishForm" novalidate>
+        <fieldset id="editorFields">
+          <label for="titleInput">Заголовок</label>
+          <input id="titleInput" name="title" type="text" aria-describedby="titleError" required>
+          <p id="titleError" class="field-error"></p>
+          <label for="bodyInput">Текст</label>
+          <textarea id="bodyInput" name="body" rows="4" aria-describedby="bodyError" required></textarea>
+          <p id="bodyError" class="field-error"></p>
+          <button id="publishButton" type="submit">Создать публикацию</button>
+        </fieldset>
+      </form>
+      <p id="publishMessage" class="message" role="status" aria-live="polite"></p>
+      <article id="publishedResult" hidden aria-label="Созданная публикация">
+        <span id="publishedId"></span>
+        <h3 id="publishedTitle"></h3>
+        <p id="publishedBody"></p>
+      </article>
+    </section>
+
+    <section aria-labelledby="feedHeading">
+      <h2 id="feedHeading">Публикации (<span id="postCount">0</span>)</h2>
+      <button id="loadButton" type="button">Загрузить публикации</button>
+      <p id="loadMessage" class="message" role="status" aria-live="polite"></p>
+      <div id="feedEmpty"><p>Список пуст.</p></div>
+      <div id="postList" aria-label="Список публикаций"></div>
+    </section>
+  </main>
+</body>
+</html>
